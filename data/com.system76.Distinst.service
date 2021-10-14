@@ -1,0 +1,10 @@
+[Unit]
+Requires=multi-user.target
+Description=Distribution Installer
+
+[Service]
+ExecStart=/usr/bin/com.system76.Distinst
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
