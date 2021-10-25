@@ -1,6 +1,6 @@
 debian/*
-!debian/*.install
-!debian/*.postinst
+!debian/*install
+!debian/*postinst
 !debian/changelog
 !debian/control
 !debian/links
