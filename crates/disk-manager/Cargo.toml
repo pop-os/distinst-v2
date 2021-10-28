@@ -1,11 +1,12 @@
 [package]
 name = "pop-disk-manager"
 version = "0.1.0"
-edition = "2018"
+edition = "2021"
+rust-version = "1.56.0"
 
 [dependencies]
 cradle = "0.2.0"
-devicemapper = "0.29.3"
+devicemapper = "0.30"
 gptman = "0.8.0"
 libcryptsetup-rs = "0.4.4"
 libudev = "0.3.0"
@@ -16,7 +17,8 @@ serde = { version = "1.0", features = ["derive"] }
 sys-mount = { git = "https://github.com/pop-os/sys-mount" }
 thiserror = "1.0.29"
 ward = "2.1.0"
-zvariant = { git = "https://github.com/mmstick/zbus", branch = "main"}
+zbus =  { git = "https://gitlab.freedesktop.org/dbus/zbus" }
+zvariant =  { git = "https://gitlab.freedesktop.org/dbus/zbus" }
 
 [dev-dependencies]
 fomat-macros = "0.3.1"
