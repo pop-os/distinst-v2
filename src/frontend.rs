@@ -1,3 +1,6 @@
+// Copyright 2021 System76 <info@system76.com>
+// SPDX-License-Identifier: GPL-3.0-only
+
 use crate::{EncryptedDevice, OsInfo, Request};
 use envfile::EnvFile;
 use pop_disk_manager::os_probe::OsEntry;
