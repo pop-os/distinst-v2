@@ -19,6 +19,8 @@ use zbus::ConnectionBuilder;
 const IFACE: &str = "/com/system76/Distinst";
 
 fn main() -> anyhow::Result<()> {
+    better_panic::install();
+
     async_io::block_on(async_main())
 }
 

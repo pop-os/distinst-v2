@@ -1,7 +1,7 @@
 [package]
 name = "distinst_v2"
 version = "0.1.0"
-edition = "2021"
+edition = "2018"
 rust-version = "1.56.0"
 license = "GPL-3.0"
 
@@ -25,5 +25,6 @@ zvariant = { git = "https://gitlab.freedesktop.org/dbus/zbus" }
 postage = { version = "0.4", features = ["futures-traits"] }
 rand = "0.8.4"
 async-io = "1.6.0"
+better-panic = "0.2.0"
 
 [features]
