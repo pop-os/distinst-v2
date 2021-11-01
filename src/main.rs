@@ -18,8 +18,11 @@ use zbus::ConnectionBuilder;
 
 const IFACE: &str = "/com/system76/Distinst";
 
-#[tokio::main]
-async fn main() -> anyhow::Result<()> {
+fn main() -> anyhow::Result<()> {
+    async_io::block_on(async_main())
+}
+
+async fn async_main() -> anyhow::Result<()> {
     let dm = devicemapper::DM::new()
         .map_err(|why| anyhow::anyhow!("{}", why))
         .context("failed to initialize devicemapper instanace")?;

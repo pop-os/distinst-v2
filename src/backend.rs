@@ -28,7 +28,7 @@ impl Backend {
                 },
 
                 Request::DiskRescan => {
-                    dbg!(backend.disk_rescan());
+                    let _ = dbg!(backend.disk_rescan());
                     Frontend::disk_rescan_complete(&ctx).await
                 }
 
