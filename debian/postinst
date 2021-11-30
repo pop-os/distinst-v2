@@ -1,8 +1,0 @@
-#!/bin/sh
-set -x
-
-systemctl enable com.system76.Distinst
-
-#DEBHELPER#
-
-exit 0

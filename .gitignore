@@ -6,6 +6,7 @@ debian/*
 !debian/links
 !debian/rules
 !debian/source
+!debian/*.service
 .cargo
 target
 vendor

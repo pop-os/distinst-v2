@@ -3,6 +3,8 @@ Requires=multi-user.target
 Description=Distribution Installer
 
 [Service]
+Type=dbus
+BusName=com.system76.Distinst
 ExecStart=/usr/bin/com.system76.Distinst
 Restart=on-failure
 

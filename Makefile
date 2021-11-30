@@ -22,8 +22,7 @@ ifneq ($(VENDOR),0)
 endif
 
 TARGET_BIN="$(DESTDIR)$(bindir)/$(ID)"
-TARGET_DBUS_CONF="$(DESTDIR)$(sysconfdir)/dbus-1/system.d/$(ID).conf"
-TARGET_SYSTEMD_SERVICE="$(DESTDIR)$(libdir)/systemd/system/$(ID).service"
+TARGET_DBUS_CONF="$(DESTDIR)$(sysconfdir)/dbus-1/system.d/distinst-v2.conf"
 
 all: extract-vendor
 	cargo build $(ARGS)
@@ -49,8 +48,7 @@ endif
 
 install:
 	install -Dm04755 "target/$(TARGET)/$(BINARY)" "$(TARGET_BIN)"
-	install -Dm0644 "data/$(ID).conf" "$(TARGET_DBUS_CONF)"
-	install -Dm0644 "data/$(ID).service" "$(TARGET_SYSTEMD_SERVICE)"
+	install -Dm0644 "data/distinst-v2.conf" "$(TARGET_DBUS_CONF)"
 
 uninstall:
 	rm "$(TARGET_BIN)" "$(TARGET_DBUS_CONF)" "$(TARGET_SYSTEMD_SERVICE)"
