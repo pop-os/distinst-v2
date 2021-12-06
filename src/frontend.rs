@@ -82,6 +82,16 @@ impl Frontend {
         mode as u8
     }
 
+    /// Obtain the recovery partition's configuration as a map.
+    async fn recovery_config(&self) -> zbus::fdo::Result<BTreeMap<String, String>> {
+        match self.env.as_ref().map(|env| env.store.clone()) {
+            Some(map) => Ok(map),
+            None => {
+                zbus::fdo::Result::Err(zbus::fdo::Error::Failed("no recovery config found".into()))
+            }
+        }
+    }
+
     /// Initiate a search for OS boot entries.
     async fn os_entries(&mut self) -> zbus::fdo::Result<()> {
         eprintln!("fetching OS entries");
