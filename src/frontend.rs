@@ -6,12 +6,22 @@ use envfile::EnvFile;
 use pop_disk_manager::os_probe::OsEntry;
 use postage::mpsc::Sender;
 use postage::prelude::*;
+use std::collections::BTreeMap;
 use zbus::SignalContext;
 
 /// DBus frontend which accepts requests and passes them on to the background.
 pub struct Frontend {
     pub env: Option<EnvFile>,
     pub sender: Sender<Request>,
+}
+
+#[derive(Debug, Copy, Clone)]
+#[repr(u8)]
+pub enum Mode {
+    Live = 0,
+    Oem = 1,
+    Recovery = 2,
+    Refresh = 3,
 }
 
 #[dbus_interface(name = "com.system76.Distinst")]
@@ -55,26 +65,21 @@ impl Frontend {
         devices: Vec<EncryptedDevice>,
     ) -> zbus::Result<()>;
 
-    /// System is in an environment which was requested to refresh an existing OS.
-    async fn is_refresh(&self) -> bool {
-        let refresh = self
-            .env
-            .as_ref()
-            .map_or(false, |env| env.get("MODE") == Some("refresh"));
+    /// Determines which mode the system is currently in.
+    async fn mode(&self) -> u8 {
+        let mode = if let Some(env) = self.env.as_ref() {
+            if env.get("OEM_MODE") == Some("1") {
+                Mode::Oem
+            } else if env.get("MODE") == Some("refresh") {
+                Mode::Refresh
+            } else {
+                Mode::Recovery
+            }
+        } else {
+            Mode::Live
+        };
 
-        eprintln!("checking if refresh mode is enabled: {}", refresh);
-        refresh
-    }
-
-    /// System is in an OEM first-time setup environment.
-    async fn is_oem_mode(&self) -> bool {
-        let oem = self
-            .env
-            .as_ref()
-            .map_or(false, |env| env.get("OEM_MODE") == Some("1"));
-
-        eprintln!("checking if OEM mode is enabled: {}", oem);
-        oem
+        mode as u8
     }
 
     /// Initiate a search for OS boot entries.
