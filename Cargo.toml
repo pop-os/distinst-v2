@@ -20,8 +20,8 @@ libudev = "0.3.0"
 pop-disk-manager = { path = "crates/disk-manager" }
 serde = { version = "1.0", features = ["derive"] }
 sys-mount = { git = "https://github.com/pop-os/sys-mount" }
-zbus = { git = "https://gitlab.freedesktop.org/dbus/zbus" }
-zvariant = { git = "https://gitlab.freedesktop.org/dbus/zbus" }
+zbus = "2.0.0"
+zvariant = "3.0.0"
 postage = { version = "0.4", features = ["futures-traits"] }
 rand = "0.8.4"
 async-io = "1.6.0"

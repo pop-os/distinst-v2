@@ -9,7 +9,7 @@ use crate::frontend::Frontend;
 use crate::{Device, EncryptedDevice, OsInfo, Request};
 use std::future::Future;
 use std::path::Path;
-use zbus::{Connection, InterfaceDeref, SignalContext};
+use zbus::{Connection, SignalContext};
 
 /// DBus backend which carries out requests it receives.
 pub struct Backend {
@@ -178,13 +178,15 @@ impl Backend {
         C: FnOnce(&'a mut Self, SignalContext<'a>) -> F + 'a,
         F: Future<Output = zbus::Result<()>> + 'a,
     {
-        let _ = conn
-            .object_server_mut()
+        if let Ok(iface) = conn
+            .object_server()
+            .interface::<_, Frontend>(crate::IFACE)
             .await
-            .with(crate::IFACE, move |_: InterfaceDeref<'_, Frontend>, ctx| {
-                future(self, ctx)
-            })
-            .await;
+        {
+            if let Err(why) = future(self, iface.signal_context().to_owned()).await {
+                eprintln!("dbus backend context error: {:?}", why);
+            }
+        }
     }
 }
 

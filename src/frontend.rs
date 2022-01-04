@@ -33,9 +33,11 @@ impl Frontend {
         Ok(())
     }
 
+    #[rustfmt::skip]
     #[dbus_interface(signal)]
     pub async fn decrypt_err(ctx: &SignalContext<'_>, why: String) -> zbus::Result<()>;
 
+    #[rustfmt::skip]
     #[dbus_interface(signal)]
     pub async fn decrypt_ok(ctx: &SignalContext<'_>) -> zbus::Result<()>;
 
@@ -46,6 +48,7 @@ impl Frontend {
         Ok(())
     }
 
+    #[rustfmt::skip]
     #[dbus_interface(signal)]
     pub async fn disk_rescan_complete(ctx: &SignalContext<'_>) -> zbus::Result<()>;
 
@@ -56,9 +59,11 @@ impl Frontend {
         Ok(())
     }
 
+    #[rustfmt::skip]
     #[dbus_interface(signal)]
     pub async fn encrypted_devices_err(ctx: &SignalContext<'_>, why: String) -> zbus::Result<()>;
 
+    #[rustfmt::skip]
     #[dbus_interface(signal)]
     pub async fn encrypted_devices_ok(
         ctx: &SignalContext<'_>,
@@ -99,9 +104,11 @@ impl Frontend {
         Ok(())
     }
 
+    #[rustfmt::skip]
     #[dbus_interface(signal)]
     pub async fn os_entries_err(ctx: &SignalContext<'_>, why: String) -> zbus::Result<()>;
 
+    #[rustfmt::skip]
     #[dbus_interface(signal)]
     pub async fn os_entries_ok(ctx: &SignalContext<'_>, entries: Vec<OsEntry>) -> zbus::Result<()>;
 
@@ -112,9 +119,11 @@ impl Frontend {
         Ok(())
     }
 
+    #[rustfmt::skip]
     #[dbus_interface(signal)]
     pub async fn os_search_err(ctx: &SignalContext<'_>, why: String) -> zbus::Result<()>;
 
+    #[rustfmt::skip]
     #[dbus_interface(signal)]
     pub async fn os_search_ok(ctx: &SignalContext<'_>, entries: Vec<OsInfo>) -> zbus::Result<()>;
 }

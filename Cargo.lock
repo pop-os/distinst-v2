@@ -555,9 +555,9 @@ checksum = "a357d28ed41a50f9c765dbfe56cbc04a64e53e5fc58ba79fbc34c10ef3df831f"
 
 [[package]]
 name = "enumflags2"
-version = "0.6.4"
+version = "0.7.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "83c8d82922337cd23a15f88b70d8e4ef5f11da38dd7cdb55e84dd5de99695da0"
+checksum = "a25c90b056b3f84111cf183cbeddef0d3a0bbe9a674f057e1a1533c315f24def"
 dependencies = [
  "enumflags2_derive",
  "serde",
@@ -565,9 +565,9 @@ dependencies = [
 
 [[package]]
 name = "enumflags2_derive"
-version = "0.6.4"
+version = "0.7.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "946ee94e3dbf58fdd324f9ce245c7b238d46a66f00e86a020b71996349e46cce"
+checksum = "144ec79496cbab6f84fa125dc67be9264aef22eb8a28da8454d9c33f15108da4"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1642,15 +1642,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9def91fd1e018fe007022791f865d0ccc9b3a0d5001e01aabb8b40e46000afb5"
 
 [[package]]
-name = "slotmap"
-version = "1.0.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e1e08e261d0e8f5c43123b7adf3e4ca1690d655377ac93a03b2c9d3e98de1342"
-dependencies = [
- "version_check",
-]
-
-[[package]]
 name = "smallstr"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2012,8 +2003,9 @@ checksum = "85e60b0d1b5f99db2556934e21937020776a5d31520bf169e851ac44e6420214"
 
 [[package]]
 name = "zbus"
-version = "2.0.0-beta.7"
-source = "git+https://gitlab.freedesktop.org/dbus/zbus#864bae51316c0518f1fdded646eac05c13b5130f"
+version = "2.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d8b6202696b4dc8ee26ff92939c79a0307e7cd683374fdf500902d74d914fef6"
 dependencies = [
  "async-broadcast",
  "async-channel",
@@ -2038,7 +2030,6 @@ dependencies = [
  "serde",
  "serde_repr",
  "sha1",
- "slotmap",
  "static_assertions",
  "zbus_macros",
  "zbus_names",
@@ -2047,8 +2038,9 @@ dependencies = [
 
 [[package]]
 name = "zbus_macros"
-version = "2.0.0-beta.7"
-source = "git+https://gitlab.freedesktop.org/dbus/zbus#864bae51316c0518f1fdded646eac05c13b5130f"
+version = "2.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fd2ea67f43e8abd245eabc480e597990340d9870b585d40bf4350d742acb2219"
 dependencies = [
  "proc-macro-crate",
  "proc-macro2",
@@ -2059,8 +2051,9 @@ dependencies = [
 
 [[package]]
 name = "zbus_names"
-version = "1.1.0"
-source = "git+https://gitlab.freedesktop.org/dbus/zbus#864bae51316c0518f1fdded646eac05c13b5130f"
+version = "2.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ae1f142d242d6854815a8c5c2aea83d9508f72f5757d0a137c21ef4b07bfee66"
 dependencies = [
  "serde",
  "static_assertions",
@@ -2069,8 +2062,9 @@ dependencies = [
 
 [[package]]
 name = "zvariant"
-version = "2.9.0"
-source = "git+https://gitlab.freedesktop.org/dbus/zbus#864bae51316c0518f1fdded646eac05c13b5130f"
+version = "3.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4a946c049b2eac1a253f98e9267a8ce7a3d93be274ea146e6dd7a0965232a911"
 dependencies = [
  "byteorder",
  "enumflags2",
@@ -2082,8 +2076,9 @@ dependencies = [
 
 [[package]]
 name = "zvariant_derive"
-version = "2.9.0"
-source = "git+https://gitlab.freedesktop.org/dbus/zbus#864bae51316c0518f1fdded646eac05c13b5130f"
+version = "3.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "28fce5afb8d639bff79b1e8cdb258a3ca22d458f4603b23d794b4cb4e878c990"
 dependencies = [
  "proc-macro-crate",
  "proc-macro2",
