@@ -15,6 +15,7 @@ use postage::mpsc;
 use postage::prelude::*;
 use std::path::Path;
 use zbus::ConnectionBuilder;
+use zvariant::Type;
 
 const IFACE: &str = "/com/system76/Distinst";
 
@@ -74,7 +75,6 @@ async fn async_main() -> anyhow::Result<()> {
 }
 
 use serde::{Deserialize, Serialize};
-use zvariant::derive::Type;
 
 #[derive(Debug, Type, Serialize, Deserialize)]
 pub struct Device {

@@ -18,8 +18,8 @@ serde = { version = "1.0", features = ["derive"] }
 sys-mount = { git = "https://github.com/pop-os/sys-mount" }
 thiserror = "1.0.29"
 ward = "2.1.0"
-zbus =  { git = "https://gitlab.freedesktop.org/dbus/zbus" }
-zvariant =  { git = "https://gitlab.freedesktop.org/dbus/zbus" }
+zbus = "2.0.0"
+zvariant =  "3.0.0"
 
 [dev-dependencies]
 fomat-macros = "0.3.1"
