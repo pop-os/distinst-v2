@@ -83,7 +83,7 @@ impl Backend {
 
         let devname: String = {
             let (devname, _) = disk_manager
-                .block_by_uuid(device, &t)
+                .block_by_uuid(device, t)
                 .context("could not find block device by UUID")?;
 
             devname.to_owned()
@@ -152,7 +152,7 @@ impl Backend {
         let mut operating_systems = Vec::new();
 
         for devname in disk_manager.blocks.keys() {
-            if let Some(linux) = os_probe::linux(&Path::new(&devname)) {
+            if let Some(linux) = os_probe::linux(Path::new(&devname)) {
                 operating_systems.push(OsInfo {
                     device: Device {
                         path: devname.clone(),

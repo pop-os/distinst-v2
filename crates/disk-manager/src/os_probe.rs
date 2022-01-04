@@ -8,7 +8,7 @@ use os_release::OsRelease;
 use std::fs;
 use std::path::{Path, PathBuf};
 use sys_mount::scoped_mount;
-use zvariant::derive::Type;
+use zvariant::Type;
 
 #[derive(Clone, Debug)]
 pub struct LinuxOS {
@@ -89,7 +89,7 @@ fn locate_boot_entries(partition: &Path, mount_at: &Path, entry_path: &Path) -> 
                     .and_then(|line| {
                         line.split_ascii_whitespace()
                             .find_map(|f| f.strip_prefix("root=UUID="))
-                            .map(|uuid| String::from(uuid))
+                            .map(String::from)
                     })
                     .map(|uuid| OsEntry {
                         path: partition.to_string_lossy().to_owned().to_string(),
