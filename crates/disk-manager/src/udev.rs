@@ -29,7 +29,7 @@ impl UDev {
 
     /// Append a device which we have determined to be a physical disk.
     fn append_disk(&self, dm: &mut DiskManager, device: &UDevice, _t: &mut ACellOwner) {
-        let dev = ward::ward!(disk_manager_device(&device), else { return });
+        let dev = ward::ward!(disk_manager_device(device), else { return });
 
         if dev.name.contains("loop") {
             return;
