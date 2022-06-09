@@ -47,7 +47,7 @@ ifeq ($(VENDOR),1)
 endif
 
 install:
-	install -Dm04755 "target/$(TARGET)/$(BINARY)" "$(TARGET_BIN)"
+	install -Dm0755 "target/$(TARGET)/$(BINARY)" "$(TARGET_BIN)"
 	install -Dm0644 "data/distinst-v2.conf" "$(TARGET_DBUS_CONF)"
 
 uninstall:
