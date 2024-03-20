@@ -18,7 +18,7 @@ serde = { version = "1.0", features = ["derive"] }
 sys-mount = { git = "https://github.com/pop-os/sys-mount" }
 thiserror = "1.0.29"
 ward = "2.1.0"
-zbus = "2.0.0"
+zbus = "3.0.0"
 zvariant =  "3.0.0"
 
 [dev-dependencies]
