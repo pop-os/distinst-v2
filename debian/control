@@ -28,7 +28,6 @@ Depends:
   grub2-common,
   iso-codes,
   kpartx,
-  kpartx-boot,
   libudev1,
   locales,
   lvm2,
